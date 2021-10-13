@@ -7,6 +7,10 @@ cd users/
 ```
 sh install.sh
 ```
+## Build
+```
+docker-compose up
+```
 ### Webpage
 See [http://localhost:8080](http://localhost:8080)
 ### Troubleshooting
