@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% block title %}Users{% endblock %}
+{% block body %}
+    <table class="table table-bordered text-center table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Username</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for user in pagination.items %}
+            <tr>
+                <th scope="row">{{ user.username|e }}</th>
+                <td>
+                    {% if user.disabled %}
+                        <a href="#" class="btn-secondary btn disabled" tabindex="-1" role="button" aria-disabled="true">Disable</a>
+                    {% endif %}
+                    {% if not user.disabled %}
+                        <a href="{{ path('disable_user', {id: user.id}) }}" class="btn btn-danger">Disable</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="mx-auto" style="width: 18rem;">
+        <div class="nav text-center mx-auto">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+{% block title %}Register{% endblock %}
+{% block body %}
+    <div class="card mx-auto" style="width: 18rem;">
+        <div class="card-body">
+            {{ form(form) }}
+            <a class="btn btn-block btn-light btn-sm" href="{{ path('login') }}">Login</a>
+        </div>
+    </div>
+{% endblock %}
